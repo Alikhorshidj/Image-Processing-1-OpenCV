@@ -1,18 +1,19 @@
 import cv2
 import numpy as np
-
+import time
 
 cap = cv2.VideoCapture(0)
 
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
 
-while True :
+while True:
     ret, frame = cap.read()
 
-    out.write(frame)
-
+    # out.write(frame)
+    # time.sleep(2)
     img_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    out.write(img_gray)
 
     cv2.imshow('webcam',img_gray)
 
